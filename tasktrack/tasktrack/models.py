@@ -20,13 +20,13 @@ class Task(models.Model):
 
 
 class TaskAdmin(admin.ModelAdmin):
+    ordering = ("start_date", "due_date")
     date_hierarchy = "start_date"
-    actions_selection_counter = False
     list_display = ("project", "title", "start_date", "due_date")
     list_display_links = ("project", "title")
     list_editable = ("start_date", "due_date")
     list_filter = ("project",)
-    ordering = ("start_date", "due_date")
+    actions_selection_counter = False
 
 admin.site.register(Project)
 admin.site.register(Task, TaskAdmin)
