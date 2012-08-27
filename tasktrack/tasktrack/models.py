@@ -14,6 +14,7 @@ class Task(models.Model):
     description = models.TextField(blank=True)
     start_date = models.DateField(blank=True)
     due_date = models.DateField(blank=True)
+    hours = models.CharField(max_length=255, blank=True)
 
     def __unicode__(self):
         return self.title
@@ -22,9 +23,9 @@ class Task(models.Model):
 class TaskAdmin(admin.ModelAdmin):
     ordering = ("start_date", "due_date")
     date_hierarchy = "start_date"
-    list_display = ("project", "title", "start_date", "due_date")
+    list_display = ("project", "title", "start_date", "due_date", "hours")
     list_display_links = ("project", "title")
-    list_editable = ("start_date", "due_date")
+    list_editable = ("start_date", "due_date", "hours")
     list_filter = ("project",)
     actions_selection_counter = False
 
