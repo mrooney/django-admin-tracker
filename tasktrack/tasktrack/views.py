@@ -13,6 +13,3 @@ def json_response(func):
     def decorated(*args, **kwargs):
         return HttpResponse(cjson.encode(func(*args, **kwargs)), mimetype="application/json")
     return decorated
-
-def index(request):
-    return r2r("index.jinja", request)
