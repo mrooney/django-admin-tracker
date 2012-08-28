@@ -5,7 +5,7 @@ import sys
 PROJECT_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(PROJECT_DIR, 'public')
 
-DEBUG = sys.platform == 'darwin'
+DEBUG = True
 TESTING = 'test' in sys.argv
 TEMPLATE_DEBUG = True
 
