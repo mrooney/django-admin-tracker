@@ -32,17 +32,3 @@ class Task(models.Model):
 
     def __unicode__(self):
         return self.title
-
-
-class TaskAdmin(admin.ModelAdmin):
-    ordering = ("status", "start_date", "due_date", "id")
-    date_hierarchy = "start_date"
-    list_display = ("project", "title", "start_date", "due_date", "hours", "status")
-    list_display_links = ("project", "title")
-    list_editable = ("start_date", "due_date", "hours", "status")
-    list_filter = ("project", "status")
-    actions_selection_counter = False
-
-admin.site.register(Project)
-admin.site.register(Task, TaskAdmin)
-
