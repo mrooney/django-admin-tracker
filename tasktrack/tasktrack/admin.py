@@ -3,6 +3,7 @@ from django.contrib import admin
 from tasktrack.models import Project, Task
 
 class TaskAdmin(admin.ModelAdmin):
+    actions = None
     ordering = ("status", "start_date", "due_date", "id")
     date_hierarchy = "start_date"
     list_display = ("project", "title", "start_date", "due_date", "hours", "status")
